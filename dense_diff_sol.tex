@@ -463,20 +463,20 @@ x; & x \in [0;1]\\
 
 Искомое событие можно записать как:
 
-$X_k \in [x; x+dx]$. Так как $X_1 \leqslant … \leqslant X_k \leqslant … \leqslant X_n$, то это событие эквивалентно трем одновременно произошедшим событиям:
+$X_k \in [x; x+dx]$. Так как $X_1 \leqslant ... \leqslant X_k \leqslant ... \leqslant X_n$, то это событие эквивалентно трем одновременно произошедшим событиям:
 
 \begin{enumerate}
-    \item Одно наблюдение из n попало в $[x;x+dx]$ ($P(.)=f_X(x)dx + o(dx)$)
-    \item (k-1) наблюдения из (n-1) оставшихся попали левее $[x;x+dx]$ (($P(.)=P(X_1<x,…,X_k-1<x)= P(X_1<x),…,P(X_k-1<x)=(F_X(x))^(k-1)$)
-    \item (n-k) оставшихся наблюдений попали правее $[x;x+dx]$ (($P(.)=((1-F_X(x))^(k-1)$)
+    \item Одно наблюдение из n попало в $[x; x+dx]$ ($P(.)=f_X(x)dx + o(dx)$)
+    \item (k-1) наблюдения из (n-1) оставшихся попали левее $[x;x+dx]$ (($P(.)=P(X_1<x,... ,X_k-1<x)= P(X_1<x),...,P(X_k-1<x)=(F_X(x))^{k-1}$)
+    \item (n-k) оставшихся наблюдений попали правее $[x;x+dx]$ (($P(.)=((1-F_X(x))^{k-1}$)
 \end{enumerate}
 
 Тогда вероятность искомого события можно записать как:
 
-\[f_(X_k)(x)dx=n(f_X(x)dx + o(dx)) \cdot (C_(n-k))^(k-1) \cdot (F_X(x))^(k-1) \cdot (1-F_X(x))^(n-k) \cdot 1 + o(dx)\]
+\[f_(X_k)(x)dx=n(f_X(x)dx + o(dx)) \cdot (C_{n-k})^{k-1} \cdot (F_X(x))^{k-1} \cdot (1-F_X(x))^{n-k} \cdot 1 + o(dx)\]
 
 Тогда для нормального распределения:
 
-\[ f_(U_k)(x)=n \cdot (C_(n-1))^(k-1) \cdot (frac{x-a}{b-a})^(k-1) \cdot (1-frac{x-a}{b-a})^(n-k) \text{ , если }x in [a; b]\]
+\[ f_(U_k)(x)=n \cdot (C_{n-1})^{k-1} \cdot (frac{x-a}{b-a})^{k-1} \cdot (1-frac{x-a}{b-a})^{n-k} \text{ , если }x \in [a; b]\]
 }
 \end{document}
