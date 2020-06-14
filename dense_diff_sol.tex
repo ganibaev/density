@@ -477,6 +477,36 @@ $X_k \in [x; x+dx]$. Так как $X_1 \leqslant ... \leqslant X_k \leqslant ..
 
 Тогда для равномерного распределения:
 
-\[ f_(U_k)(x)=n \cdot (C_{n-1})^{k-1} \cdot (frac{x-a}{b-a})^{k-1} \cdot (1-frac{x-a}{b-a})^{n-k} \text{ , если }x \in [a; b]\]
+\[ f_{U_k}(x)=n \cdot (C_{n-1})^{k-1} \cdot (frac{x-a}{b-a})^{k-1} \cdot (1-frac{x-a}{b-a})^{n-k} \cdot \frac{1}{b-a} \text{ , если }x \in [a; b]\]
 }
+
+\problem{
+    Вывести совместную функцию плотности для $k$-й и $m$-й порядковых статистик из выборки равномерного распределения.
+}
+
+\solution{
+    Пусть искомое событие $A = \{ X_k\in [x; x+dx], X_m\in [y; y + dy]\}$
+
+Искомое событие произошло, если одновременно:
+
+\begin{enumerate}
+    \item Какое-то одно наблюдение из n попало в $[x; x+dx]$ (с вероятностью $f_X(x)dx + o(dx)$)
+    \item Какое-то одно наблюдение из (n-1) попало в $[y; y+dy]$ (c вероятностью $f_X(y)dy + o(dy)$)
+    \item Какие-то (k–1) из оставшихся (n-1) левее $X_k$ с вероятностью $(F_X(x))^{k-1}$
+    \item Какие-то (m–k–1) из оставшихся (n-k-1) попали в $[X_k; X_m]$ с вероятностью $(F_X(y)- F_X(x))^{m-k-1}$
+    \item Оставшиеся (n–1) правее $X_m$ с вероятностью $(1–F_X(y))^{n-1}$
+\end{enumerate}
+
+Тогда:
+\begin{multline*}
+    f_{X_k\cm X_m}(x\cm y)dx  dy = n(n - 1)\cdot (C_{n-1})^{k-1} \cdot (f_X(x)+o(dx))\cdot (f_X(y)+o(dy))\cdot (F_X(x))^{k-1}\cdot \\ \cdot (F_X(y) - F_X(x))^{m-k-1} \cdot (1- F_X(y))\cdot (n-1) + o(dx) + o(dy)
+\end{multline*}
+
+
+Тогда для равномерного распределения:
+\begin{multline*}
+f_{U_k, U_m}(x, y)dx ^ dy = n(n - 1)\cdot (C_{n-1})^{k-1} \cdot \left( \frac{x-a}{b-a} \right)^{k-1}\cdot \left( \frac{y-a}{b-a}- \frac{x-a}{b-a}\right)^{m-k-1}\cdot \\ \cdot \left(1- \frac{y-a}{b-a}\right)\cdot (n-1)\cdot \left(\frac{1}{b-a}\right)^2\text{, если } x \in [a; b] 
+\end{multline*}
+}
+
 \end{document}
