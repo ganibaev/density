@@ -473,7 +473,7 @@ $X_k \in [x; x+dx]$. Так как $X_1 \leqslant ... \leqslant X_k \leqslant ..
 
 Тогда вероятность искомого события можно записать как:
 
-\[f_(X_k)(x)dx=n(f_X(x)dx + o(dx)) \cdot (C_{n-k})^{k-1} \cdot (F_X(x))^{k-1} \cdot (1-F_X(x))^{n-k} \cdot 1 + o(dx)\]
+\[f_{X_k}(x)dx=n(f_X(x)dx + o(dx)) \cdot (C_{n-k})^{k-1} \cdot (F_X(x))^{k-1} \cdot (1-F_X(x))^{n-k} \cdot 1 + o(dx)\]
 
 Тогда для равномерного распределения:
 
@@ -494,7 +494,7 @@ $X_k \in [x; x+dx]$. Так как $X_1 \leqslant ... \leqslant X_k \leqslant ..
     \item Какое-то одно наблюдение из (n-1) попало в $[y; y+dy]$ (c вероятностью $f_X(y)dy + o(dy)$)
     \item Какие-то (k–1) из оставшихся (n-1) левее $X_k$ с вероятностью $(F_X(x))^{k-1}$
     \item Какие-то (m–k–1) из оставшихся (n-k-1) попали в $[X_k; X_m]$ с вероятностью $(F_X(y)- F_X(x))^{m-k-1}$
-    \item Оставшиеся (n–1) правее $X_m$ с вероятностью $(1–F_X(y))^{n-1}$
+    \item Оставшиеся (n–1) правее $X_m$ с вероятностью $(1-F_X(y))^{n-1}$
 \end{enumerate}
 
 Тогда:
@@ -505,8 +505,50 @@ $X_k \in [x; x+dx]$. Так как $X_1 \leqslant ... \leqslant X_k \leqslant ..
 
 Тогда для равномерного распределения:
 \begin{multline*}
-f_{U_k, U_m}(x, y)dx ^ dy = n(n - 1)\cdot (C_{n-1})^{k-1} \cdot \left( \frac{x-a}{b-a} \right)^{k-1}\cdot \left( \frac{y-a}{b-a}- \frac{x-a}{b-a}\right)^{m-k-1}\cdot \\ \cdot \left(1- \frac{y-a}{b-a}\right)\cdot (n-1)\cdot \left(\frac{1}{b-a}\right)^2\text{, если } x \in [a; b] 
+f_{U_k\cm U_m}(x, y)dx dy = n(n - 1)\cdot (C_{n-1})^{k-1} \cdot \left( \frac{x-a}{b-a} \right)^{k-1}\cdot \left( \frac{y-a}{b-a}- \frac{x-a}{b-a}\right)^{m-k-1}\cdot \\ \cdot \left(1- \frac{y-a}{b-a}\right)\cdot (n-1)\cdot \left(\frac{1}{b-a}\right)^2\text{, если } x \in [a; b] 
 \end{multline*}
 }
 
+\problem{
+    На множество $D = \{(x\cm y)∶ ~~ x^2 + y^2 \leqslant R^2\}$ бросают n точек. Найти функцию плотности $X_k$ и $Y_k$, где $X_1\leqslant ... \leqslant X_k\leqslant ... \leqslant X_n$, $Y_1\leqslant ... \leqslant Y_k\leqslant ... \leqslant Y_n$.
+}
+
+\solution{
+    Так как функция плотности произвольной абсциссы имеет вид $f_X (x)dx = \frac{2\cdot \sqrt{R^2-x^2}}{\pii\cdot R^2}dx+o(dx)$, если $x \in [-R; R]$, а плотность $k$-й порядковой статистики:
+
+    \[f_{X_k}(x)=n(f_X(x)dx + o(dx)) \cdot  (C_{n-k})^{k-1}\cdot (F_X(x))^{k-1}\cdot (1-F_X(x))^{n-k}\cdot 1 + o(dx)\,\] то:
+
+\begin{multline*}
+    f_{X_k}(x)=n\cdot \left(\frac{2\cdot \sqrt{R^2-x^2}}{\pii\cdot R^2}\right) \cdot (C_{n-k})^{k-1}\cdot \left(\frac{x\cdot \sqrt{R^2-x^2}+R^2\cdot \arctg{\frac{x}{\sqrt{R^2-x^2}}}}{\pii\cdot R^2}\right)^{k-1}\cdot \\ \cdot \left(1-\frac{x\cdot \sqrt{R^2-x^2}+R^2\cdot \arctg{\frac{x}{\sqrt{R^2-x^2}}}}{\pii\cdot R^2}\right)^{n-k}
+\end{multline*}
+
+    Аналогично для ординаты.
+}
+
+\problem{
+    $n$ точек равномерно упали на область, ограниченную прямыми $y=1- x$, $x = 0$, $y = 0$. Найти функции плотности для абсциссы $f_{X_k}(x)$ и ординаты $f_{X_k}(y)$ точки, где $X_k$ -- $k$-я порядковая статистика.
+}
+
+\solution{
+    Так как функция плотности произвольной абсциссы имеет вид $f_X (x)dx = 2\cdot (1-x)$, если $x \in [0; 1]$, а плотность $k$-й порядковой статистики:
+    \[f_{X_k}(x)=n(f_X(x)dx + o(dx)) \cdot  (C_{n-k})^{k-1}\cdot (F_X(x))^{k-1}\cdot (1-F_X(x))^{n-k}\cdot 1 + o(dx)\,\] то:
+    \[ f_{X_k}(x)=n\cdot (2\cdot (1-x))\cdot (C_{n-k})^{k-1}\cdot (2\cdot x-x^2)^{k-1}\cdot (1-(2\cdot x-x^2))^{n-k} \]
+}
+
+\problem{
+    $n$ точек равномерно упали на область, ограниченную прямыми $ln(x + 1)$ , $x = 1$, $y=0$
+
+    Найдите функции плотности для абсциссы $f_{X_k}(x)$ и ординаты $f_{X_k}(y)$ точки, где $X_k$ -- $k$-я порядковая статистика.
+}
+
+\solution{
+    Так как функция плотности произвольной абсциссы имеет вид $f_X (x)dx = \frac{ln(1+x)}{2ln(2)-1}$, если $x \in [0; 1]$, а плотность $k$-й порядковой статистики:
+    \[f_{X_k}(x)=n(f_X(x)dx + o(dx)) \cdot  (C_{n-k})^{k-1}\cdot (F_X(x))^{k-1}\cdot (1-F_X(x))^{n-k}\cdot 1 + o(dx)\,\] то:
+    \begin{multline*}
+        f_{X_k}(x)=n\cdot \left(\frac{ln(1+x)}{2\cdot ln(2)-1}\right)\cdot (C_{n-k})^{k-1}\cdot \left(\frac{(1 + x)\cdot ln(1 + x) - x}{2\cdot ln(2)-1}\right)^{k-1}\cdot \\ \cdot \left(1-(\frac{(1 + x)\cdot ln(1 + x) – x}{2ln(2)-1})\right)^{n-k} \text{, если } x \in [0; 1]
+    \end{multline*}
+
+    Для ординаты:
+    \[f_{Y_k}(y)=n\cdot \left(\frac{2-e^{y}}{ 2\cdot ln(2)-1}\right)\cdot C_{n-k}^{k-1}\cdot \left(\frac{2\cdot y-e^{y}}{2\cdot ln(2)-1}\right)^{k-1}\cdot \left(1-\frac{2\cdot y-e^{y}}{2ln(2)-1}\right)^{n-k} \text{, если } x \in [0; ln(2)] \]
+}
 \end{document}
